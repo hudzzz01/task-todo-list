@@ -49,10 +49,32 @@ class Todo {
         
     }
 
-    static async readUserTodo(req){
+    static async readTodoById(req){
+        const data = req.body;
+        try {
+            console.log(data)
+            
+            return await TabelList.findByPk(data.id);    
+            
+        } catch (error) {
+            console.log(error)
+            return "err kesalahan mengambil data List";
+            
+        }
+
+        
+    }
+
+    
+
+
+
+    static async readUserTodo(req,auth){
         try {
             const data = req.body
-            return await TabelList.findByPk(data.id)    
+            return await TabelList.findAll({where:{
+                idUser:auth.data.id}
+            })    
             
         } catch (error) {
             console.log(error)

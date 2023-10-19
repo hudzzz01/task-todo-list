@@ -9,6 +9,9 @@ const router = express.Router();
 router.get("/todo-list",async(req,res)=>{
     ControllerTodo.readTodo(req,res);
 })
+router.get("/todo-list-id",async(req,res)=>{
+    ControllerTodo.readTodoById(req,res);
+})
 router.get("/todo-list-user",(req,res)=>{
     ControllerTodo.readUserTodo(req,res);
 })

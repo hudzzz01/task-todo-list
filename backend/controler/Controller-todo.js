@@ -48,6 +48,29 @@ class ControllerTodo{
         }
     }
 
+
+    static async readTodoById(req,res){
+        if(!req.headers.authorization){
+            return responView.err(res,"token tidak ditemukan");
+        }
+        const bearer = req.headers.authorization.split("Bearer ")[1];
+        const resultAuth = await Token.decodeToken(bearer);
+        console.log(resultAuth,bearer)
+        if(resultAuth == undefined){
+            return responView.err(res,"token tidak ditemukan");
+        }
+        try {
+            const data = await Todo.readTodoById(req)
+          
+            if(data !== null){
+                return responView.err(res,data);
+            }
+            responView.err(res,"data tidak ditemukan");
+        } catch (error) {
+            responView.err(res,error);
+        }
+    }
+
     static async readUserTodo(req,res){
         if(!req.headers.authorization){
             return responView.err(res,"token tidak ditemukan");
@@ -59,7 +82,7 @@ class ControllerTodo{
             return responView.err(res,"token tidak ditemukan");
         }
         try {
-            const data = await Todo.readUserTodo(req)
+            const data = await Todo.readUserTodo(req,resultAuth)
             console.log(data)
 
             if(data == null){
