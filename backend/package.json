@@ -1,0 +1,36 @@
+{
+  "name": "todo-list-be",
+  "version": "1.0.0",
+  "description": "its for API todolist program",
+  "exports": "./index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hudzzz01/task-todo-list.git"
+  },
+  "keywords": [
+    "backend",
+    "javaScript",
+    "Nodejs"
+  ],
+  "author": "muhamad hudzaifah assyahid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hudzzz01/task-todo-list/issues"
+  },
+  "homepage": "https://github.com/hudzzz01/task-todo-list#readme",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.6.2",
+    "sequelize": "^6.33.0"
+  }
+}
