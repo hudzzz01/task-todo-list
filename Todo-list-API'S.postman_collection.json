@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "15804c8d-14c1-410c-8385-573fa152da36",
+		"name": "Todo-list-API'S",
+		"description": "backed-untuk-todo-list dengan menggunakan sequelize.\n\ncreate by : hudzaifah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27650334",
+		"_collection_link": "https://solar-meadow-626055.postman.co/workspace/cd491e17-029c-4a0c-9418-6e6fbbd4a48f/collection/27650334-15804c8d-14c1-410c-8385-573fa152da36?action=share&source=collection_link&creator=27650334"
+	},
+	"item": [
+		{
+			"name": "To-do-CRUD-API'S",
+			"item": [
+				{
+					"name": "getAllTodo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"description": "mendapatkan semua data todo.  \nDibutuhkan bearer token berupa token login pada Authorization Header\n\ntidak ada parameter request yang digunakan.\n\nparameter respon berupa JSON sebagai berikut :\n\nberhasil :  \n`{`\n\n`status : \"ok\",`\n\n`data : []`\n\n`}`\n\n<img src=\"https://content.pstmn.io/fe94580b-0420-4f77-bde3-f8003bd00621/aW1hZ2UucG5n\" width=\"461\" height=\"226\">\n\nGagal :\n\n`{`\n\n`status : \"err\",`\n\n`err : \"keterangan error\"`\n\n`}`"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWEiOiJpZmFoIiwidXNlcm5hbWUiOiJodWR6YSIsInJvbGUiOiJhZG1pbiIsImlkIjoiNWZhNDc2ZDYtMGEzNi00Y2RhLWE0ZTItYmFhNjUzY2I0MTU2In0sImlhdCI6MTY5Nzc2ODk1NCwiZXhwIjoxNjk3NzcyNTU0fQ.6e7eyFeItwjtuVuAVrdLkjuFPc34SuX8dHHIBMRl-Ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"denger musik\",\r\n    \"description\" : \"santai sambil denger musik\",\r\n    \"type\" : \"santai\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todo-list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todo-list"
+							]
+						},
+						"description": "membuat sebuah todo.  \nDibutuhkan bearer token berupa token login pada Authorization Header\n\ntidak ada parameter request yang digunakan.\n\nparameter request berupa JSON-Body sebagai berikut :\n\n<img src=\"https://content.pstmn.io/2709ba09-0e59-47cb-b18f-b6b713711fd6/aW1hZ2UucG5n\" width=\"369\" height=\"122\">\n\nparameter respon berupa JSON sebagai berikut :\n\nberhasil :  \n`{`\n\n`status : \"ok\",`\n\n`data : {}`\n\n`}`\n\n<img src=\"https://content.pstmn.io/7a9405aa-32c8-43cd-b8cb-5b09bb6d0cfe/aW1hZ2UucG5n\" alt=\"\" height=\"230\" width=\"442\">"
+					},
+					"response": []
+				},
+				{
+					"name": "updateToDo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWEiOiJpZmFoIiwidXNlcm5hbWUiOiJodWR6YSIsInJvbGUiOiJhZG1pbiIsImlkIjoiNWZhNDc2ZDYtMGEzNi00Y2RhLWE0ZTItYmFhNjUzY2I0MTU2In0sImlhdCI6MTY5Nzc2ODk1NCwiZXhwIjoxNjk3NzcyNTU0fQ.6e7eyFeItwjtuVuAVrdLkjuFPc34SuX8dHHIBMRl-Ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"17ef5392-2f69-4bc2-87e0-7c9d940a33a1\",\r\n    \"title\" : \"beli ayam bakarr2\",\r\n    \"description\" : \"sore ini beli ayam bakar di tempat biasa jangan lupa\",\r\n    \"type\" : \"makan,belanja\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todo-list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todo-list"
+							]
+						},
+						"description": "mengedit sebuah todo.  \nDibutuhkan bearer token berupa token login pada Authorization Header (digunakan sebagai data user)\n\nparameter response sebgai berikut :\n\n<img src=\"https://content.pstmn.io/99a111ba-baa9-4e1a-958c-33fb8d158924/aW1hZ2UucG5n\" alt=\"\" height=\"119\" width=\"159\">"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTodo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWEiOiJpZmFoIiwidXNlcm5hbWUiOiJodWR6YSIsInJvbGUiOiJhZG1pbiIsImlkIjoiNWZhNDc2ZDYtMGEzNi00Y2RhLWE0ZTItYmFhNjUzY2I0MTU2In0sImlhdCI6MTY5Nzc2ODk1NCwiZXhwIjoxNjk3NzcyNTU0fQ.6e7eyFeItwjtuVuAVrdLkjuFPc34SuX8dHHIBMRl-Ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"059ba787-f5b5-48e0-a30e-ca84c96bddb3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todo-list",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todo-list"
+							]
+						},
+						"description": "menghapus sebuah todo.  \nDibutuhkan bearer token berupa token login pada Authorization Header\n\nparameter respon berupa JSON sebagai berikut :\n\n<img src=\"https://content.pstmn.io/3ad157ed-9bb2-4dc2-ae42-003e28ec5538/aW1hZ2UucG5n\" alt=\"\" height=\"83\" width=\"164\">"
+					},
+					"response": []
+				},
+				{
+					"name": "getUserTodo",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWEiOiJpZmFoIiwidXNlcm5hbWUiOiJodWR6YSIsInJvbGUiOiJhZG1pbiIsImlkIjoiNWZhNDc2ZDYtMGEzNi00Y2RhLWE0ZTItYmFhNjUzY2I0MTU2In0sImlhdCI6MTY5NzcxNjM3NywiZXhwIjoxNjk3NzE5OTc3fQ.AljqLo3EZDrmklNvv_UE4-O0qEKkTFxtAt7uTU7YFo0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todo-list-user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todo-list-user"
+							]
+						},
+						"description": "mendapatkan todo my user(id user didapatkan dari bearir token )\n\nrespon sebagai berikut :\n\n<img src=\"https://content.pstmn.io/eb1a3c3c-bda6-42e4-bdd2-95e4cabd45c0/aW1hZ2UucG5n\" width=\"689\" height=\"399\">"
+					},
+					"response": []
+				},
+				{
+					"name": "todo-list-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWEiOiJpZmFoIiwidXNlcm5hbWUiOiJrZW50dW5nIiwicm9sZSI6ImFkbWluIiwiaWQiOiI5NDMxMmJmYi1kOTZmLTRiNWQtOGI5NS0wNmQ2OTIxODBkNTYifSwiaWF0IjoxNjk3NzE2NjQyLCJleHAiOjE2OTc3MjAyNDJ9.7c7CklnCDqIJy6ISOILmBVGL50WBYwjkOj24puDmMiI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"2386c3f2-f3c4-4019-8252-ce191b9942ec\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/todo-list-id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"todo-list-id"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "API untuk CRUD user"
+		},
+		{
+			"name": "Type-CRUD-API'S",
+			"item": [
+				{
+					"name": "getType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/type",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\" : \"ayam\",\r\n    \"idTodo\" : \"970651fa-fc11-400b-9efa-0a843235454e\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/type",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateType",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"3ac7e355-1fe5-4401-874d-e67de92ad24e\",\r\n    \"name\" : \"name\",\r\n    \"todoId\" : \"todoId\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/type",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteType",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"3a6e2cb5-a765-4cbb-9ec9-d2081e78e879\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/type",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"type"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User-CRUD-API'S",
+			"item": [
+				{
+					"name": "getAllUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Im5hbWEiOiJpZmFoIiwidXNlcm5hbWUiOiJrZW50dW5nIiwicm9sZSI6ImFkbWluIiwiaWQiOiI5NDMxMmJmYi1kOTZmLTRiNWQtOGI5NS0wNmQ2OTIxODBkNTYifSwiaWF0IjoxNjk3NzM1NDMyLCJleHAiOjE2OTc3MzkwMzJ9.YzvTEgMpCexY_Wfpl8WMLH7WcOsTfwiMpvGTcLwn-dA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nama\":\"ifah\",\r\n    \"username\":\"kentung\",\r\n    \"password\" : \"123\",\r\n    \"role\" : \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"af3e72c3-cb05-4ed1-8e6a-72cb0aca76f5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login-Regis-User-API'S",
+			"item": [
+				{
+					"name": "Login",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"hudza\",\r\n    \"password\" : \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cekUsername",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"ifah\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/checkUsername",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"checkUsername"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
