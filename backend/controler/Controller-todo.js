@@ -83,12 +83,13 @@ class ControllerTodo{
         }
         try {
             const data = await Todo.readUserTodo(req,resultAuth)
-            console.log(data)
+            
 
             if(data == null){
                 return responView.err(res,data);
             }
-            responView.ok(res,data);
+            responView.ok(res,{dataUser:resultAuth.data,
+                dataTodo:data});
         } catch (error) {
             responView.err(res,error);
         }

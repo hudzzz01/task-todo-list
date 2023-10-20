@@ -3,8 +3,13 @@ import ControllerTodo from "../controler/Controller-todo.js";
 import ControllerUser from "../controler/Controler-User.js";
 import ControllerType from "../controler/Controller-type.js";
 import ControllerLoginRegis from "../controler/Controler-Login-Regis.js";
+import cors from "cors";
 const router = express.Router();
-
+router.use(cors(
+    {
+        origin:'*'
+    }
+))
 //todo CRUD
 router.get("/todo-list",async(req,res)=>{
     ControllerTodo.readTodo(req,res);

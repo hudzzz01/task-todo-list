@@ -15,7 +15,10 @@ const TabelList = db.define('list',{
     },
     idUser: {
        type : DataTypes.STRING,
-    }
+    },
+    type:{
+      type: DataTypes.STRING
+    },
 
 },{
     freezeTableName: true

@@ -36,6 +36,7 @@ class Type {
         }
 
     }
+    
 
     
     static async updateType(req){

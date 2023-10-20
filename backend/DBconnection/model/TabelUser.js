@@ -20,7 +20,7 @@ const TabelUser = db.define('user',{
     role:{
         type: DataTypes.STRING,
         defaultValue : "warga"
-    }
+    },
 
 },{
     freezeTableName: true
